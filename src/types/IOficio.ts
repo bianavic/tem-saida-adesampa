@@ -1,14 +1,18 @@
 import estadoCivilEnum from './enum/estadoCivilEnum'
-import Icontato from './IContato'
+import { Icontato } from './IContato'
+import Ifilhos from './Ifilhos'
+import { Document } from 'mongoose'
 
-export default interface Ioficio {
+export default interface Ioficio  extends Document{
   nome: string;
   rg: string;
-  nascimento:  Date;
   cpf: string;
+  nascimento:  Date;
+  nacionalidade: string;
   estadoCivil: estadoCivilEnum;
-  filhos: number;
+  filhos: Ifilhos;
   contato: Icontato;
   email: string;  
+  dataCriacao: Date;
   
 };

@@ -1,5 +1,5 @@
 
-interface Icontato {
+export interface Icontato {
     cep: string;
     endereco: string;
     complemento:  string;
@@ -7,9 +7,12 @@ interface Icontato {
     cidade:  string;
     estado:  string;
     horarioDeContato?:  string; 
-    telefone: string;
-    
+    telefone: Itelefone[];
 }
 
-export default Icontato
+ export interface Itelefone {
+    numero: string;
+    recado: boolean;
+}
+
 

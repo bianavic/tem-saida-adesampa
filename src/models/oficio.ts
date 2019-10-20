@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Ioficio from '../types/IOficio'
 
 const oficioSchema = new mongoose.Schema({
   nome: {type: String, required: true},
@@ -6,13 +7,16 @@ const oficioSchema = new mongoose.Schema({
   cpf: {type: String, required: true, unique: true},
   dataNascimento: {type: Date},
   nacionalidade : {type: String},
-  estadoCivil: {type: String, enum: ['Solteiro','Casado', 'Divorciado', 'Viuvo']},
+  estadoCivil: {type: String, enum: ['solteiro','casado', 'divorciado', 'viuvo']},
   filhos: {
     possuiFilho: {type: Boolean},
-    quantity: {type: Number}
+    filho: [{
+      nome: { type: String, required: true },
+      idade: {type: Number}
+    }]
   },
   contato: {
-      cep: { type: String},
+      cep: { type: Number },
       endereco: { type: String},
       complemento: {type : String},
       bairro: {type: String},
@@ -23,11 +27,11 @@ const oficioSchema = new mongoose.Schema({
           numero: {type: String},
           recado: {type: Boolean}
       },
-    email: {type: String}      
+    email: {type: String, required: true, unique: true}      
   },
-  createdAt: { type: Date, default: Date.now }
+  dataCriacao: { type: Date, default: Date.now }
 });
 
-const oficio = mongoose.model<any>('oficios', oficioSchema);
+const oficio = mongoose.model<Ioficio>('oficios', oficioSchema);
 
 export { oficioSchema, oficio };

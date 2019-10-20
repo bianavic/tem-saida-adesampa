@@ -1,5 +1,6 @@
 
 import { oficioService } from '../services/index';
+import { createOficio } from '../schemas/oficioSchema'
 import { errors } from '../utils/body';
 
 async function oficioRouter(fastify, options) {
@@ -13,12 +14,12 @@ async function oficioRouter(fastify, options) {
       return errors(error);
     }
   });
-  fastify.post('/oficio', options, async (request, reply) => {
+  fastify.post('/oficio', {schema: createOficio} , async (request, reply) => {
     try {
 
       const payload = request.body
-   
       const response = await oficioService.create(payload);
+      
       reply.status(200).send(response);
     } catch (error) {
       return errors(error);
