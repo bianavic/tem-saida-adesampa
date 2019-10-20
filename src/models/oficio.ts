@@ -4,7 +4,7 @@ const oficioSchema = new mongoose.Schema({
   nome: {type: String, required: true},
   rg: {type: String, required: true, unique: true},
   cpf: {type: String, required: true, unique: true},
-  dataNascimento: {type: Date,},
+  dataNascimento: {type: Date},
   nacionalidade : {type: String},
   estadoCivil: {type: String, enum: ['Solteiro','Casado', 'Divorciado', 'Viuvo']},
   filhos: {
@@ -25,7 +25,7 @@ const oficioSchema = new mongoose.Schema({
       },
     email: {type: String}      
   },
-  created_at: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now }
 });
 
 const oficio = mongoose.model<any>('oficios', oficioSchema);

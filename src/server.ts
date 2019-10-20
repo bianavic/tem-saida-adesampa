@@ -27,7 +27,9 @@ server.register(swagger, {
   },
 });
 
-Object.values(routes).forEach(server.register);
+for (const i in routes) {
+  server.register(routes[i])
+}
 
 const start = async () => {
   try {
