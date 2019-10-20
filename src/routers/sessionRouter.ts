@@ -1,6 +1,8 @@
 
 import { userService } from '../services/index';
+import Iuser from '../types/IUser'
 import { errors } from '../utils/body';
+import { Icontato } from '../types/IContato';
 
 async function sessionRouter(fastify, options) {
   fastify.get('/session/:id', options, async (request, reply) => {
@@ -15,7 +17,9 @@ async function sessionRouter(fastify, options) {
         return reply.status(401).send({ error: 'User not found.' });
     }
 
-      reply.status(200).send(user);
+     const token = fastify.jwt.sign({ id: user._id, email: user.email })
+
+      reply.status(200).send({ token: token });
     } catch (error) {
       reply.status(error.status);
       return errors(error);
