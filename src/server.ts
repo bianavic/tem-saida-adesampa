@@ -3,7 +3,9 @@ import swagger from 'fastify-swagger';
 import cors from 'fastify-cors';
 import * as routes from './routers/index';
 import startMongo from './infrastructure/mongoDB/client';
+import * as dotenv from 'dotenv'
 
+dotenv.config()
 
 const server = fastify({});
 
@@ -29,7 +31,7 @@ Object.values(routes).forEach(server.register);
 
 const start = async () => {
   try {
-    // await startMongo();
+     await startMongo();
     await server.listen(3000, '0.0.0.0');
   } catch (err) {
     console.log(err);

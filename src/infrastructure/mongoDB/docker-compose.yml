@@ -6,7 +6,7 @@ services:
     image: mongo
     restart: always
     environment:
-      MONGO_INITDB_DATABASE: pock
+      MONGO_INITDB_DATABASE: adesampa
     ports:
       - 27017:27017
 
