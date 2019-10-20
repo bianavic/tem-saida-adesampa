@@ -31,4 +31,4 @@ Vá ate o diretorio scripts e execute:
 
  `npm run prepare`
 
- - http://localhost:3000:/swagger
+ - http://localhost:3000/swagger
