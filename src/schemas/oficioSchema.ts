@@ -3,7 +3,6 @@ const createOficio = {
     description: 'Rota para criar um oficio.',
     body: {
     type: 'object',
-    reqired: ['email', 'rg', ] ,
     properties: {
         email: { type: 'string'},
         nome: {type: 'string'},
