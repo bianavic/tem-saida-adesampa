@@ -29,6 +29,7 @@ const oficioSchema = new mongoose.Schema({
       },
     email: {type: String, required: true, unique: true}      
   },
+  idJuiz: {type: mongoose.Schema.Types.ObjectId, ref: 'Skill'},
   dataCriacao: { type: Date, default: Date.now }
 });
 

@@ -14,5 +14,6 @@ export default interface Ioficio  extends Document{
   contato: Icontato;
   email: string;  
   dataCriacao: Date;
+  _idJuiz: string;
   
 };
