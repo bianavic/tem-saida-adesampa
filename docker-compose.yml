@@ -1,0 +1,27 @@
+version: '3'
+services:
+  nodejs:
+    container_name: tem-saida-adesampa
+    build: .
+    restart: always
+    command: npm run dev
+    environment:
+      MONGO_HOST: mongo
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    ports:
+      - 3000:3000
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    command: mongod --port 27017
+    environment:
+      MONGO_INITDB_DATABASE: adesampa
+    ports:
+      - 27017:27017
+    volumes:
+      - ../MongoDB:/data/db
