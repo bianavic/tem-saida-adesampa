@@ -6,7 +6,7 @@ interface Icontato {
     bairro:  string;
     cidade:  string;
     estado:  string;
-    horarioDeContato:  string; 
+    horarioDeContato?:  string; 
     telefone: string;
     
 }
