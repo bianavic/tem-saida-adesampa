@@ -4,7 +4,7 @@ import { createUser } from '../schemas/userSchema'
 import { errors } from '../utils/body';
 
 async function userRouter(fastify, options) {
-  fastify.post('/user', createUser , async (request, reply) => {
+  fastify.post('/user', {schema: createUser } , async (request, reply) => {
     try {
 
       const payload = request.body
