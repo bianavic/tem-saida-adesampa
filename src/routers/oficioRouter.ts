@@ -3,10 +3,10 @@ import { oficioService } from '../services/index';
 import { errors } from '../utils/body';
 
 async function oficioRouter(fastify, options) {
-  fastify.get('/oficio', options, async (request, reply) => {
+  fastify.get('/oficio/:id', options, async (request, reply) => {
     try {
-     
-      const response = await oficioService.find();
+      const payload = request.params.id
+      const response = await oficioService.findById(payload);
       reply.status(200).send(response);
     } catch (error) {
       reply.status(error.status);
@@ -15,8 +15,11 @@ async function oficioRouter(fastify, options) {
   });
   fastify.post('/oficio', options, async (request, reply) => {
     try {
-      const response = await oficioService.create();
-      reply.status(200).send(request.body);
+
+      const payload = request.body
+   
+      const response = await oficioService.create(payload);
+      reply.status(200).send(response);
     } catch (error) {
       return errors(error);
     }

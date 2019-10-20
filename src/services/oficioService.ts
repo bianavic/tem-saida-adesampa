@@ -1,7 +1,7 @@
 import { oficioRepository } from '../repositories/index';
 
-const find = () => oficioRepository.find();
+const findById = (query) => oficioRepository.findById(query);
 
-const create = () => oficioRepository.create();
+const create = (query) => oficioRepository.create(query);
 
-export { find, create };
+export { findById, create };

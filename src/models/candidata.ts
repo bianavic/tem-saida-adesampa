@@ -1,4 +1,4 @@
-import mongooose from mongoose;
+import mongoose from 'mongoose';
 
 const candidataSchema = new mongoose.Schema({
     nome: {type: String, require: true},

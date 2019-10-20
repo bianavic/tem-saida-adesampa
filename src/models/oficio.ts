@@ -6,7 +6,7 @@ const oficioSchema = new mongoose.Schema({
   cpf: {type: String, required: true, unique: true},
   dataNascimento: {type: Date,},
   nacionalidade : {type: String},
-  estadoCivil: {type: String, enum: ['',''] , default: '' },
+  estadoCivil: {type: String, enum: ['Solteiro','Casado', 'Divorciado', 'Viuvo']},
   filhos: {
     possuiFilho: {type: Boolean},
     quantity: {type: Number}
@@ -18,13 +18,14 @@ const oficioSchema = new mongoose.Schema({
       bairro: {type: String},
       cidade: {type: String},
       estado: {type: String},
-      horarioDeContato: {type: String, enum: ['',''], default: ''},
+      horarioDeContato: {type: String, enum: ['manha','tarde', 'noite']},
       telefone: {
           numero: {type: String},
           recado: {type: Boolean}
       },
     email: {type: String}      
-  }
+  },
+  created_at: { type: Date, default: Date.now }
 });
 
 const oficio = mongoose.model<any>('oficios', oficioSchema);

@@ -1,10 +1,10 @@
 import { oficio } from '../models/oficio';
 
-const find = () => oficio.find();
+const findById = (query) => oficio.findById(query);
 
-const create = () => oficio.create();
+const create = (query) => oficio.create(query);
 
 export {
-  find,
+  findById,
   create,
 };
