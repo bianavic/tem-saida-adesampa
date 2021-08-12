@@ -46,7 +46,7 @@
       "fastify-swagger": "^2.4.0",
       "fs": "0.0.1-security",
       "fs-extra": "^8.1.0",
-      "mongoose": "^5.7.1",
+      "mongoose": "^5.7.5",
       "swagger-ui-dist": "^3.23.11"
     }
   }
